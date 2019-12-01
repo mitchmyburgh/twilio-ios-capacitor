@@ -31,8 +31,9 @@ public class TwilioIosCapacitor: CAPPlugin {
         
         DispatchQueue.main.sync {
             //self.bridge.viewController.present(viewController, animated: true, completion: nil)
-            self.bridge.viewController.view.superview?.addSubview(viewController.view)
-            self.bridge.viewController.view.superview?.bringSubviewToFront(self.bridge.viewController.view)
+            self.bridge.viewController.addChild(viewController)
+            self.bridge.viewController.view.addSubview(viewController.view)
+            //self.bridge.viewController.view.superview?.bringSubviewToFront(self.bridge.viewController.view)
         }
         
         call.resolve()
